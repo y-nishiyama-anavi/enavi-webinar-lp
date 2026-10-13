@@ -1,0 +1,323 @@
+<title>副業ウェビナー 詳細案内</title>
+<style>
+  /* スマホ幅・中央寄せ・超リッチ：色バンド＋波区切り＋写真5枚＋マーカー＋装飾＋ロゴ＋固定予約バー */
+  :root{
+    --ivory:#FCF7F2; --paper:#FFFFFF; --ink:#2E2630; --sub:#7A6F76;
+    --rose:#B5687A; --rose-deep:#9A4E67; --rose-bg:#FBEAEF; --rose-soft:#F7D9E2;
+    --teal:#0C8077; --teal-bg:#E4F2EF; --teal-soft:#CFE9E4;
+    --lav:#F0EAF6; --lav-soft:#E6DAF0; --peach:#FBEEE6; --mark:#FBE4A6;
+    --line:#EFE2E6; --hair:#E8DCE0;
+    color-scheme: light;
+    --disp:"Shippori Mincho","Hiragino Mincho ProN",serif;
+    --body:"Zen Kaku Gothic New","Hiragino Sans",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--body);
+    line-height:1.9;font-feature-settings:"palt";-webkit-font-smoothing:antialiased;text-align:center;padding-bottom:86px}
+  .stickybar{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(252,247,242,.9);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid var(--line);
+    padding:11px 16px;padding-bottom:calc(11px + env(safe-area-inset-bottom,0px));box-shadow:0 -12px 30px -22px rgba(46,38,48,.5)}
+  .stickybar .inner{max-width:440px;margin:0 auto}
+  .stickybar .cta{margin:0;max-width:none;padding:.92em 1.6em;font-size:1rem}
+  .wrap{max-width:440px;margin:0 auto;padding-left:24px;padding-right:24px;position:relative;z-index:2}
+  section{padding-block:52px;position:relative}
+  .svg{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.72rem;font-weight:700;letter-spacing:.18em;color:var(--rose)}
+  .eyebrow::before,.eyebrow::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--rose-soft)}
+  h2{font-family:var(--disp);font-weight:800;font-size:1.66rem;line-height:1.55;margin:14px 0 28px;letter-spacing:.02em;position:relative;padding-bottom:18px}
+  h2::after{content:"";position:absolute;left:50%;bottom:2px;transform:translateX(-50%);width:84px;height:12px;
+    background:center/contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='12' viewBox='0 0 88 12'%3E%3Cpath d='M3 8 C18 2 28 10 44 6 S72 2 85 7' fill='none' stroke='%23B5687A' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E")}
+  h2 .t{color:var(--teal)}
+  .mk{background:linear-gradient(transparent 56%, var(--mark) 56%);padding:0 .1em}
+  .mk.rose{background:linear-gradient(transparent 56%, var(--rose-soft) 56%)}
+  .lead{color:var(--sub);font-size:.95rem;margin:0 0 22px}
+  .wavetop{display:block;width:100%;height:30px;margin-top:-30px;position:relative;z-index:1}
+
+  .cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;max-width:338px;
+    background:linear-gradient(135deg,var(--rose),var(--rose-deep));color:#fff;font-weight:700;font-size:1.06rem;
+    border-radius:999px;padding:1.05em 1.6em;text-decoration:none;box-shadow:0 18px 32px -14px rgba(154,78,103,.6);transition:transform .15s,box-shadow .15s}
+  .cta:hover{transform:translateY(-2px);box-shadow:0 22px 38px -14px rgba(154,78,103,.7)}
+  .cta small{font-weight:500;font-size:.78rem;opacity:.95}
+  .cta-note{font-size:.78rem;font-weight:700;color:var(--sub);margin-top:13px;letter-spacing:.05em}
+  .cta-note i{font-style:normal;color:var(--rose)}
+
+  .arch{border-radius:200px 200px 22px 22px;overflow:hidden;position:relative}
+  .arch img{width:100%;height:100%;object-fit:cover;display:block}
+  .arch::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 4px rgba(255,255,255,.55)}
+
+  .topbar{padding:18px 0 4px;text-align:center}
+  .topbar img{height:26px;width:auto}
+
+  /* HERO */
+  .hero{position:relative;overflow:hidden;padding-bottom:16px}
+  .blob{position:absolute;border-radius:50%;filter:blur(2px);z-index:0}
+  .b1{width:200px;height:200px;background:var(--rose-bg);right:-60px;top:40px}
+  .b2{width:150px;height:150px;background:var(--teal-bg);left:-54px;top:260px}
+  .b3{width:90px;height:90px;background:var(--lav-soft);right:16px;bottom:30px;opacity:.7}
+  .dot{position:absolute;width:9px;height:9px;border-radius:50%;z-index:1}
+  .spk{position:absolute;color:var(--rose);z-index:1;opacity:.8}
+  .hero .wrap{padding-block:14px 30px;display:flex;flex-direction:column;align-items:center}
+  .hphoto{width:80%;aspect-ratio:4/5;margin-bottom:26px}
+  .hbadge{position:absolute;left:2px;bottom:16px;width:84px;height:84px;border-radius:50%;background:var(--rose);color:#fff;
+    display:grid;place-items:center;transform:rotate(-9deg);box-shadow:0 12px 24px -10px rgba(154,78,103,.7);z-index:3;line-height:1.25}
+  .hbadge b{font-size:1.15rem;font-weight:900} .hbadge span{font-size:.62rem;display:block;font-weight:700}
+  .hero h1{font-family:var(--disp);font-weight:800;font-size:clamp(2.15rem,8.8vw,2.65rem);line-height:1.42;margin:14px 0 0;letter-spacing:.035em}
+  .hero h1 .l{display:block;white-space:nowrap}
+  .hero h1 .q{color:var(--rose);font-size:1.08em}
+  .hero .sub{font-size:1.04rem;color:var(--ink);margin:16px 0 0;line-height:1.85;font-weight:500}
+  .hero .sub b{color:var(--teal);font-weight:700}
+  .dateline{display:inline-flex;align-items:center;justify-content:center;gap:11px;flex-wrap:wrap;margin-top:26px;font-weight:700;
+    border:1.5px solid var(--rose-soft);background:var(--paper);border-radius:16px;padding:13px 20px;box-shadow:0 12px 26px -20px rgba(46,38,48,.5)}
+  .dateline .svg{width:20px;height:20px;color:var(--rose)}
+  .dateline .d{font-family:var(--disp);font-size:1.22rem;font-weight:800;letter-spacing:.02em}
+  .dateline .f{font-size:.74rem;font-weight:700;color:#fff;background:var(--teal);border-radius:999px;padding:.35em .85em}
+  .hero .cta{margin-top:26px}
+
+  /* 安心 */
+  .assure{background:var(--paper);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+  .assure .wrap{display:grid;grid-template-columns:1fr 1fr;padding-left:0;padding-right:0}
+  .assure .it{display:flex;align-items:center;justify-content:center;gap:9px;padding:18px 8px;font-weight:700;font-size:.92rem}
+  .assure .it .ic{flex:none;width:26px;height:26px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center}
+  .assure .it .ic .svg{width:14px;height:14px;stroke-width:2.6}
+  .assure .it:nth-child(1),.assure .it:nth-child(2){border-bottom:1px solid var(--hair)}
+  .assure .it:nth-child(odd){border-right:1px solid var(--hair)}
+
+  /* 物撮りムード帯 */
+  .photoband{position:relative;width:100%;height:230px;overflow:hidden}
+  .photoband img{width:100%;height:100%;object-fit:cover;display:block}
+  .photoband .chip{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(252,247,242,.92);
+    border-radius:16px;padding:16px 26px;font-family:var(--disp);font-weight:700;font-size:1.05rem;color:var(--ink);
+    box-shadow:0 16px 34px -18px rgba(46,38,48,.5);white-space:nowrap}
+  .photoband .chip em{font-style:normal;color:var(--rose)}
+
+  /* 帯カラー */
+  .band-rose{background:var(--rose-bg)} .band-mint{background:var(--teal-bg)}
+  .band-peach{background:var(--peach)} .band-lav{background:var(--lav)} .band-soft{background:#EAF4F1}
+
+  /* こんな方へ */
+  .pic{width:100%;aspect-ratio:4/3;margin-bottom:24px}
+  .nlist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+  .nlist li{background:var(--paper);border-radius:18px;padding:20px 22px;display:flex;align-items:center;gap:16px;text-align:left;box-shadow:0 12px 26px -22px rgba(46,38,48,.4)}
+  .nlist .no{flex:none;width:40px;height:40px;border-radius:50%;background:var(--rose);color:#fff;font-family:var(--disp);font-weight:800;font-size:1.05rem;display:grid;place-items:center}
+  .nlist .tx{font-size:.98rem;font-weight:500;line-height:1.6}
+
+  /* 分かること */
+  .learn{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .lc{background:var(--paper);border-radius:20px;padding:24px 16px;box-shadow:0 14px 30px -24px rgba(46,38,48,.45);display:flex;flex-direction:column;align-items:center}
+  .lc .ic{width:56px;height:56px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;margin-bottom:12px}
+  .lc .ic .svg{width:27px;height:27px;stroke-width:1.8}
+  .lc .n{font-family:var(--disp);font-size:.84rem;font-weight:800;color:var(--rose);letter-spacing:.14em}
+  .lc h3{margin:3px 0 7px;font-size:1.02rem;font-weight:900;line-height:1.4}
+  .lc p{margin:0;color:var(--sub);font-size:.84rem;line-height:1.75}
+
+  /* 未来セクション */
+  .futphoto{width:72%;aspect-ratio:4/5;margin:0 auto 26px}
+  .freedoms{display:flex;flex-direction:column;gap:12px}
+  .fcard{background:var(--paper);border-radius:18px;padding:18px 20px;display:flex;align-items:center;gap:16px;text-align:left;box-shadow:0 12px 26px -22px rgba(46,38,48,.4)}
+  .fcard .ic{flex:none;width:46px;height:46px;border-radius:50%;background:var(--peach);color:var(--rose-deep);display:grid;place-items:center}
+  .fcard .ic .svg{width:24px;height:24px;stroke-width:1.9}
+  .fcard b{display:block;font-size:1.02rem;font-weight:900}
+  .fcard span{color:var(--sub);font-size:.86rem}
+
+  /* 相談セクション */
+  .cphoto{width:100%;aspect-ratio:16/10;border-radius:24px;overflow:hidden;margin-bottom:22px;box-shadow:0 18px 40px -26px rgba(46,38,48,.5);position:relative}
+  .cphoto img{width:100%;height:100%;object-fit:cover;display:block}
+  .cphoto::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 4px rgba(255,255,255,.5)}
+  .pts{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px}
+  .pts span{font-size:.82rem;font-weight:700;background:var(--teal-bg);color:var(--teal);border-radius:999px;padding:.5em 1em;display:inline-flex;align-items:center;gap:6px}
+  .pts .svg{width:14px;height:14px;stroke-width:2.6}
+
+  /* 参加方法 */
+  .steps{display:flex;flex-direction:column;gap:14px}
+  .step{background:var(--paper);border-radius:20px;padding:26px 22px;box-shadow:0 14px 30px -24px rgba(46,38,48,.45);position:relative}
+  .step .ic{width:54px;height:54px;border-radius:50%;background:var(--rose-bg);color:var(--rose);display:grid;place-items:center;margin:0 auto 10px}
+  .step .ic .svg{width:26px;height:26px;stroke-width:1.8}
+  .step .no{font-family:var(--disp);font-weight:800;color:var(--rose);font-size:.82rem;letter-spacing:.16em}
+  .step h3{margin:8px 0 6px;font-size:1.08rem;font-weight:900}
+  .step p{margin:0;color:var(--sub);font-size:.9rem;line-height:1.75}
+  .step .arrow{position:absolute;left:50%;bottom:-19px;transform:translateX(-50%);width:30px;height:30px;background:var(--paper);border-radius:50%;display:grid;place-items:center;color:var(--rose);box-shadow:0 6px 14px -8px rgba(46,38,48,.5);z-index:2}
+  .step .arrow .svg{width:16px;height:16px;transform:rotate(90deg);stroke-width:2.4}
+  .step:last-child .arrow{display:none}
+
+  /* 開催概要 */
+  .ov{border-top:2px solid var(--rose);text-align:left;background:var(--paper);border-radius:0 0 16px 16px;box-shadow:0 14px 30px -26px rgba(46,38,48,.4)}
+  .ov .row{display:grid;grid-template-columns:96px 1fr;border-bottom:1px solid var(--hair)}
+  .ov .row:last-child{border-bottom:0}
+  .ov dt{font-family:var(--disp);font-weight:700;font-size:.9rem;padding:16px 10px 16px 18px;margin:0;color:var(--rose-deep)}
+  .ov dd{margin:0;padding:16px 18px 16px 14px;font-size:.93rem;border-left:1px solid var(--hair)}
+  .ov dd b{color:var(--rose);font-weight:700} .ov .note{color:var(--sub);font-size:.82rem}
+
+  /* 締め */
+  .close{background:var(--ink);color:var(--ivory);position:relative;overflow:hidden}
+  .close .glow{position:absolute;width:280px;height:280px;border-radius:50%;background:rgba(181,104,122,.25);filter:blur(10px);left:-80px;top:-60px}
+  .close .wrap{padding-block:58px}
+  .close .q{font-family:var(--disp);font-size:1.45rem;line-height:1.65;margin:0 0 14px;font-weight:700}
+  .close .q u{text-decoration:none;color:#F0B4C2}
+  .close p{margin:0 auto;color:#CFC5CD;font-size:.94rem}
+  .close .cta{margin-top:26px;background:#fff;color:var(--rose-deep)}
+  .close .cta:hover{background:#F6E8ED}
+  .close .cta-note{color:#B7AEBD}.close .cta-note i{color:#F0B4C2}
+
+  footer{padding-block:34px 50px}
+  footer img{height:24px;width:auto;opacity:.95}
+  footer .f2{color:var(--sub);font-size:.8rem;margin-top:12px}
+
+  @media(max-width:360px){ .learn{grid-template-columns:1fr} }
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ck" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol>
+  <symbol id="cal" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/></symbol>
+  <symbol id="chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-5A8 8 0 1 1 21 12z"/></symbol>
+  <symbol id="bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 8-3 8h18s-3-1-3-8M13.7 21a2 2 0 0 1-3.4 0"/></symbol>
+  <symbol id="play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="chart" viewBox="0 0 24 24"><path d="M4 20h16M7 20v-6M12 20V8M17 20v-9"/></symbol>
+  <symbol id="fork" viewBox="0 0 24 24"><path d="M12 21V11M12 11L6 4M12 11l6-7"/><circle cx="6" cy="4" r="1.3" fill="currentColor" stroke="none"/><circle cx="18" cy="4" r="1.3" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.6L20 10l-6.1 1.4L12 17l-1.9-5.6L4 10l6.1-1.4z" stroke-linejoin="round"/></symbol>
+  <symbol id="compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z" stroke-linejoin="round"/></symbol>
+  <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></symbol>
+  <symbol id="yen" viewBox="0 0 24 24"><path d="M7 5l5 7 5-7M12 12v7M8.5 14h7M8.5 17h7"/></symbol>
+  <symbol id="refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-1.5 5M20 5v6h-6"/></symbol>
+  <symbol id="wings" viewBox="0 0 24 24"><path d="M12 4v16M12 8c-2-3-6-3-9-2 1 4 5 6 9 5M12 8c2-3 6-3 9-2-1 4-5 6-9 5"/></symbol>
+</svg>
+
+<div class="topbar"><img src="logo.webp" alt="転職 AGENT Navi"></div>
+
+<header class="hero">
+  <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+  <span class="dot" style="background:var(--rose-soft);left:30px;top:30px"></span>
+  <span class="dot" style="background:var(--teal-soft);right:40px;top:200px"></span>
+  <span class="dot" style="background:var(--lav-soft);left:40px;bottom:120px"></span>
+  <svg class="spk svg" style="right:28px;top:120px;width:22px;height:22px"><use href="#spark"/></svg>
+  <svg class="spk svg" style="left:22px;top:380px;width:16px;height:16px;color:var(--teal)"><use href="#spark"/></svg>
+  <div class="wrap">
+    <div class="hphoto arch"><img src="person_hero.webp" alt="キャリアアドバイザーの女性"><div class="hbadge"><div><b>無料</b><span>オンライン</span></div></div></div>
+    <span class="eyebrow">無料オンラインセミナー</span>
+    <h1><span class="l">副業で稼ぐって、</span><span class="l">実際どうなの<span class="q">？</span></span></h1>
+    <p class="sub">20代の「仕事選び」が、<br>5年後の<b class="mk">「働き方」</b>を変える。</p>
+    <div class="dateline"><svg class="svg"><use href="#cal"/></svg><span class="d">10/27（火）20:00〜</span><span class="f">参加無料</span></div>
+    <a class="cta" href="https://s.lmes.jp/landing-qr/1657864300-2YK0koly?uLand=4bMg7S&amp;cid5=agentnavi" target="_blank" rel="noopener">この回に参加する <small>／ LINEで予約</small></a>
+    <p class="cta-note"><i>＼</i> LINEで10秒、予約完了 <i>／</i></p>
+  </div>
+</header>
+
+<div class="assure">
+  <div class="wrap">
+    <div class="it"><span class="ic"><svg class="svg"><use href="#ck"/></svg></span>完全無料</div>
+    <div class="it"><span class="ic"><svg class="svg"><use href="#ck"/></svg></span>顔出し不要</div>
+    <div class="it"><span class="ic"><svg class="svg"><use href="#ck"/></svg></span>スマホでOK</div>
+    <div class="it"><span class="ic"><svg class="svg"><use href="#ck"/></svg></span>無理な勧誘なし</div>
+  </div>
+</div>
+
+<div class="photoband">
+  <img src="still_desk.webp" alt="">
+  <div class="chip">いまの選択が、<em>5年後</em>をつくる。</div>
+</div>
+
+<section class="band-rose">
+  <svg class="wavetop" viewBox="0 0 440 30" preserveAspectRatio="none"><path d="M0,30 C120,2 320,2 440,30 Z" fill="#FBEAEF"/></svg>
+  <div class="wrap">
+    <div class="pic arch"><img src="person_life.webp" alt="スマホで副業を調べる20代の女性"></div>
+    <span class="eyebrow">こんな方へ</span>
+    <h2>その<span class="mk rose">「なんとなく不安」</span>、<br>はっきりさせませんか。</h2>
+    <p class="lead">ひとつでも当てはまれば、<br>この60分が役に立ちます。</p>
+    <ul class="nlist">
+      <li><span class="no">01</span><span class="tx">このまま今の仕事でいいのか、なんとなく不安</span></li>
+      <li><span class="no">02</span><span class="tx">副業に興味はあるけど、何から始めればいいか分からない</span></li>
+      <li><span class="no">03</span><span class="tx">AIで仕事がなくなる、という話が気になっている</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="band-mint">
+  <svg class="wavetop" viewBox="0 0 440 30" preserveAspectRatio="none"><path d="M0,30 C120,2 320,2 440,30 Z" fill="#E4F2EF"/></svg>
+  <div class="wrap">
+    <span class="eyebrow">このセミナーで分かること</span>
+    <h2>持ち帰れるのは、<span class="mk">4つ</span>。</h2>
+    <div class="learn">
+      <div class="lc"><div class="ic"><svg class="svg"><use href="#chart"/></svg></div><div class="n">01</div><h3>リアルな相場</h3><p>実際いくら稼げるか。「月10万」の前に知る本当の数字。</p></div>
+      <div class="lc"><div class="ic"><svg class="svg"><use href="#fork"/></svg></div><div class="n">02</div><h3>稼げる分かれ目</h3><p>時間を売るか、スキルを売るか。5年後は正反対に。</p></div>
+      <div class="lc"><div class="ic"><svg class="svg"><use href="#spark"/></svg></div><div class="n">03</div><h3>AIで消える・残る</h3><p>何が置き換わるのか、その場で実演して線引き。</p></div>
+      <div class="lc"><div class="ic"><svg class="svg"><use href="#compass"/></svg></div><div class="n">04</div><h3>効く仕事選び</h3><p>働き方の自由につながる、20代の時間の使い方。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band-peach">
+  <svg class="wavetop" viewBox="0 0 440 30" preserveAspectRatio="none"><path d="M0,30 C120,2 320,2 440,30 Z" fill="#FBEEE6"/></svg>
+  <div class="wrap">
+    <span class="eyebrow">この先に、待っているもの</span>
+    <h2>5年後の<span class="mk">「働き方」</span>は、<br>いまの選択で変わる。</h2>
+    <div class="futphoto arch"><img src="person_walk.webp" alt="明るい街を歩く女性"></div>
+    <p class="lead">“お金に変えられる力”を積むと、<br>こんな自由が手に入ります。</p>
+    <div class="freedoms">
+      <div class="fcard"><span class="ic"><svg class="svg"><use href="#yen"/></svg></span><div><b>副業でも稼げる</b><span>時給の高い側で働ける。</span></div></div>
+      <div class="fcard"><span class="ic"><svg class="svg"><use href="#refresh"/></svg></span><div><b>復帰しやすい</b><span>結婚・出産のあとも、また働き始めやすい。</span></div></div>
+      <div class="fcard"><span class="ic"><svg class="svg"><use href="#wings"/></svg></span><div><b>働き方を選べる</b><span>リモートなど、環境を“選べる”側に。</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="band-lav">
+  <svg class="wavetop" viewBox="0 0 440 30" preserveAspectRatio="none"><path d="M0,30 C120,2 320,2 440,30 Z" fill="#F0EAF6"/></svg>
+  <div class="wrap">
+    <span class="eyebrow">参加方法</span>
+    <h2>予約は、<span class="mk rose">かんたん</span>。</h2>
+    <div class="steps">
+      <div class="step"><span class="ic"><svg class="svg"><use href="#chat"/></svg></span><div class="no">STEP 1</div><h3>このLINEで予約</h3><p>画面下の「LINEで予約する」ボタンをタップするだけ。すでに友だちのあなたは、追加不要です。</p><span class="arrow"><svg class="svg"><use href="#arrow"/></svg></span></div>
+      <div class="step"><span class="ic"><svg class="svg"><use href="#bell"/></svg></span><div class="no">STEP 2</div><h3>前日にリマインド</h3><p>開催前に、参加用のURLをLINEでお送りします。</p><span class="arrow"><svg class="svg"><use href="#arrow"/></svg></span></div>
+      <div class="step"><span class="ic"><svg class="svg"><use href="#play"/></svg></span><div class="no">STEP 3</div><h3>当日タップで参加</h3><p>届いたURLをタップするだけ。顔出し・準備は不要です。</p><span class="arrow"></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band-soft">
+  <svg class="wavetop" viewBox="0 0 440 30" preserveAspectRatio="none"><path d="M0,30 C120,2 320,2 440,30 Z" fill="#EAF4F1"/></svg>
+  <div class="wrap">
+    <div class="cphoto"><img src="consult.webp" alt="キャリアアドバイザーに相談する女性"></div>
+    <span class="eyebrow">セミナー後も</span>
+    <h2>気になったら、<br><span class="t">無料でキャリア相談</span>。</h2>
+    <p class="lead">「今の自分に、どんな仕事が合うの？」——プロのアドバイザーが、あなたに合わせて一緒に整理します。無理な勧誘はありません。</p>
+    <div class="pts">
+      <span><svg class="svg"><use href="#ck"/></svg>20代の相談に強い</span>
+      <span><svg class="svg"><use href="#ck"/></svg>無理な勧誘なし</span>
+      <span><svg class="svg"><use href="#ck"/></svg>LINEで気軽に</span>
+    </div>
+  </div>
+</section>
+
+<section id="apply">
+  <div class="wrap">
+    <span class="eyebrow">開催概要</span>
+    <h2>開催概要</h2>
+    <dl class="ov" style="margin:0">
+      <div class="row"><dt>日時</dt><dd>10/27（火）20:00〜（約60分）<br><span class="note">※日程は暫定です。変更の場合はLINEでお知らせします。</span></dd></div>
+      <div class="row"><dt>形式</dt><dd>オンライン開催（スマホ・PCどちらでも参加可）</dd></div>
+      <div class="row"><dt>参加費</dt><dd><b>無料</b></dd></div>
+      <div class="row"><dt>対象</dt><dd>20代の方／副業・これからの働き方に関心のある方（転職の意思は問いません）</dd></div>
+      <div class="row"><dt>予約方法</dt><dd>この公式LINEから、<b>10秒</b>で予約できます。<b>顔出し不要</b>でご参加いただけます。</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="close">
+  <span class="glow"></span>
+  <svg class="wavetop" viewBox="0 0 440 30" preserveAspectRatio="none"><path d="M0,30 C120,2 320,2 440,30 Z" fill="#2E2630"/></svg>
+  <div class="wrap">
+    <p class="q">今の環境は、<u>取って代わられない力</u>が積める場所でしょうか。</p>
+    <p>この問いを、一緒に整理する60分です。見るだけの参加も歓迎、無理な勧誘はありません。</p>
+    <a class="cta" href="https://s.lmes.jp/landing-qr/1657864300-2YK0koly?uLand=4bMg7S&amp;cid5=agentnavi" target="_blank" rel="noopener">この回に参加する <small>／ LINEで予約</small></a>
+    <p class="cta-note"><i>＼</i> LINEで10秒、予約完了 <i>／</i></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="logo.webp" alt="転職 AGENT Navi">
+    <p class="f2">主催：circus株式会社 ／ 20代のキャリアと、これからの働き方を一緒に考えるサービスです。</p>
+  </div>
+</footer>
+
+<div class="stickybar"><div class="inner"><a class="cta" href="https://s.lmes.jp/landing-qr/1657864300-2YK0koly?uLand=4bMg7S&amp;cid5=agentnavi" target="_blank" rel="noopener">LINEで予約する <small>／ 参加無料・10秒</small></a></div></div>
